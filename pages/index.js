@@ -1,5 +1,6 @@
 import HomeTemplate from "components/templates/home";
 import Layout from "components/common/Layout";
+
 /*** dataStatic ***/
 import dataStatic from "./data.json";
 /*** ========== ***/

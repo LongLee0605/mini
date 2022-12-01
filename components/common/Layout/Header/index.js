@@ -122,11 +122,32 @@ const Header = () => {
                   />
                 )}
                 <div
-                  className={`fixed top-0 right-0 z-40 h-full w-[250px] bg-slate-900 px-5 pt-10 text-white duration-300 ease-in-out ${
+                  className={`fixed top-0 right-0 z-40 h-full w-[250px] bg-slate-600 px-5 pt-10 text-white duration-300 ease-in-out ${
                     showSidebar ? "translate-x-0 " : "translate-x-full"
                   }`}
                 >
-                  <h3 className="mt-15 text-4xl font-semibold hover:text-gray-400"></h3>
+                  <h3 className="mt-15 text-4xl font-semibold hover:text-gray-400">
+                    <div className="px-5 text-2xl font-semibold text-[#333] ">
+                      <a href="#">
+                        <span>Story</span>
+                      </a>
+                    </div>
+                    <div className="inline-block px-5 text-2xl font-semibold text-[#333] ">
+                      <a href="#">
+                        <span>Skills</span>
+                      </a>
+                    </div>
+                    <div className="inline-block px-5 text-2xl font-semibold text-[#333] ">
+                      <a href="#">
+                        <span>Projects</span>
+                      </a>
+                    </div>
+                    <div className="inline-block px-5 text-2xl font-semibold text-[#333] ">
+                      <a href="#">
+                        <span>Contact</span>
+                      </a>
+                    </div>
+                  </h3>
                 </div>
                 <div
                   className={`fixed inset-0 z-10 bg-black bg-opacity-60 transition-opacity ${
