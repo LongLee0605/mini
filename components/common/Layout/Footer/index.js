@@ -1,8 +1,5 @@
-import Title from "components/atoms/Title";
-import Image from "next/image";
-import { IoIosArrowUp } from "react-icons/io";
 import { useEffect, useState } from "react";
-
+import { IoIosArrowUp } from "react-icons/io";
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const scrollToTop = () => {
@@ -26,7 +23,10 @@ const Footer = () => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
   return (
-    <div style={{ boxShadow: "rgb(0 0 0 / 0.25) 0px 4px 10px" }}>
+    <div
+      className="bg-black"
+      style={{ boxShadow: "rgb(0 0 0 / 0.25) 0px 4px 10px" }}
+    >
       <div className="container py-10">
         <div className="row">
           <div className="col-12 text-center lg:col-6">
@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>{" "}
     </div>
   );
 };
