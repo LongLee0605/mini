@@ -56,38 +56,112 @@ const HomeTemplate = ({ dataStatic }) => {
           <div className="row mt-6">
             <div className="col-12 lg:col-6">
               <div className="row">
-                <div className="grid grid-cols-3 gap-4">
-                  {dataStatic?.Skills?.map((itemSkill, indexSkill) => {
-                    return (
-                      <div key={indexSkill} className="mx-auto">
-                        <div className="scale-100 rounded-2xl border-2 p-6 duration-500 hover:scale-110">
+                {dataStatic?.Skills?.map((itemSkill, indexSkill) => {
+                  return (
+                    <div
+                      key={indexSkill}
+                      className="grid grid-cols-2 gap-4 lg:grid-cols-3"
+                    >
+                      {itemSkill?.left?.map((itemLeft, indexLeft) => {
+                        return (
                           <div
-                            style={{
-                              width: "84px",
-                              height: "84px",
-                              position: "relative",
-                              alignSelf: "center",
-                            }}
+                            key={indexLeft}
+                            className="flex scale-100 flex-col rounded-2xl border-2 p-6 duration-500 hover:scale-110"
                           >
-                            <Image
-                              src={itemSkill.src}
-                              alt="Logo skill"
-                              layout="fill"
-                            />
+                            <div
+                              style={{
+                                width: "84px",
+                                height: "84px",
+                                position: "relative",
+                                alignSelf: "center",
+                              }}
+                            >
+                              <Image
+                                src={itemLeft.src}
+                                alt="Logo skill"
+                                layout="fill"
+                              />
+                            </div>
+                            <div className="mt-2 text-center">
+                              <p className="text-xl font-semibold">
+                                {itemLeft.content}
+                              </p>
+                            </div>
                           </div>
-                          <div className="mt-2 text-center">
-                            <p className="text-xl font-semibold">
-                              {itemSkill.content}
-                            </p>
-                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="col-12 lg:col-6">
+              {dataStatic?.Skills?.map((itemSkill, indexSkill) => {
+                return (
+                  <div key={indexSkill}>
+                    {itemSkill?.right?.map((itemRight, indexRight) => {
+                      return (
+                        <div
+                          key={indexRight}
+                          className="mt-2 rounded-2xl border-2 p-4 first:mt-0"
+                        >
+                          <p className="text-xl font-semibold">
+                            {itemRight.content}
+                          </p>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Project */}
+      <section>
+        <div className="container">
+          <Title>Project</Title>
+          <div className="row mt-6">
+            <div className="col-12">
+              <div className="rounded-3xl border-2 bg-slate-400 p-8">
+                <div className="rounded-2xl border-4 border-white p-10">
+                  <div className="row">
+                    <div className="col-12 lg:col-6">
+                      {dataStatic?.Projects?.map((item, index) => {
+                        return (
+                          <div key={index}>
+                            {item?.project?.map((itemProject, indexProject) => {
+                              return (
+                                <div key={indexProject}>
+                                  <Title>{itemProject.title}</Title>
+                                  <div className="">{itemProject.subTitle}</div>
+                                  <ul>
+                                    <div className="">
+                                      {itemProject.titleLi}
+                                    </div>
+                                    {itemProject?.li?.map((itemLi, indexLi) => {
+                                      return (
+                                        <li
+                                          className="ml-6 list-disc"
+                                          key={indexLi}
+                                        >
+                                          {itemLi}
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-12 bg-slate-100 lg:col-6"></div>
           </div>
         </div>
       </section>
