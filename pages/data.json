@@ -1,10 +1,21 @@
 {
   "Storys": [
     {
-      "content": "I was born and raised in Vietnam. I have been exposed to computers since I was 12 years old and really like it. I am also interested in design. Sometime, I wonder if I should be a designer or a programmer because I like both. So I choose Front End developer to enjoy both."
+      "content": "Giới thiệu 1"
     },
     {
-      "content": "<p class=''>A little bit about me</p> In my free time, I like to watch Youtube and playing games. My favorite youtuber are MixiGaming. Some games I usually play are Arena Of Valor and League of Legends. Also, I love collecting models of my favorite characters, such as: Dragon Ball, One Piece,..."
+      "content": "Giới thiệu 2"
+    },
+    {
+      "content": "Giới thiệu 3"
     }
+  ],
+  "Skills": [
+    { "src": "/assets/images/js.svg", "content": "Javascript" },
+    { "src": "/assets/images/html.svg", "content": "HTML" },
+    { "src": "/assets/images/css.svg", "content": "CSS" },
+    { "src": "/assets/images/tailwindcss.svg", "content": "Tailwind" },
+    { "src": "/assets/images/wp.png", "content": "Wordpress" },
+    { "src": "/assets/images/vercel.svg", "content": "Vercel" }
   ]
 }

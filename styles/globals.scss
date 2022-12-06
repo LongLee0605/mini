@@ -7,12 +7,6 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  // background-image: linear-gradient(
-  //   225.92deg,
-  //   #33d2ff 5.73%,
-  //   #3d68de 54.65%,
-  //   #9845e8 96.75%
-  // );
 }
 
 a {
@@ -29,12 +23,13 @@ p {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+    overflow: hidden;
   }
   body {
     color: white;
     background: black;
   }
 }
-.section {
-  @apply bg-white py-10 lg:py-20;
+section {
+  @apply bg-[#F7FAFD] py-10 lg:py-20;
 }
