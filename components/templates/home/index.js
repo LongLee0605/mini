@@ -158,6 +158,26 @@ const HomeTemplate = ({ dataStatic }) => {
                         );
                       })}
                     </div>
+                    <div className="col-12 flex justify-center lg:col-6">
+                      {dataStatic?.Projects?.map((item, index) => {
+                        return (
+                          <div
+                            style={{
+                              width: "220px",
+                              height: "250px",
+                              position: "relative",
+                              alignSelf: "center",
+                            }}
+                          >
+                            <Image
+                              src={item.src}
+                              alt="Logo skill"
+                              layout="fill"
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
