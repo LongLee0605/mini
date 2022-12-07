@@ -19,6 +19,9 @@ const HomeTemplate = ({ dataStatic }) => {
       .then(
         (result) => {
           toast.success("Data has been submitted.");
+          setTimeout(() => {
+            result(true);
+          }, 3000);
           window.location.reload();
         },
         (error) => {
@@ -269,6 +272,7 @@ const HomeTemplate = ({ dataStatic }) => {
                       name="user_name"
                       className="w-full rounded-xl py-6 px-3"
                       placeholder="Your name"
+                      pattern="[A-Za-z]{1,32}"
                     />
                   </div>
                   <div className="col-12 lg:col-6">
@@ -278,6 +282,7 @@ const HomeTemplate = ({ dataStatic }) => {
                       name="user_email"
                       className="w-full rounded-xl py-6 px-3"
                       placeholder="Your email"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                     />
                   </div>
                 </div>
@@ -287,18 +292,20 @@ const HomeTemplate = ({ dataStatic }) => {
                   name="user_subject"
                   className="mb-6 w-full rounded-xl py-6 px-3"
                   placeholder="Subject"
+                  pattern="[A-Za-z]{1,32}"
                 />
                 <div className="mb-2 text-lg font-semibold">Message</div>
                 <textarea
                   name="message"
                   className="w-full rounded-xl py-6 px-3 "
                   placeholder="Message"
+                  pattern="[A-Za-z]{1,32}"
                 />
                 <div className="mt-4 flex justify-center">
                   <input
                     type="submit"
                     value="Send"
-                    className="rounded-2xl border px-10 py-3 text-xl font-semibold text-black hover:bg-black hover:text-white "
+                    className="cursor-pointer rounded-2xl border px-10 py-3 text-xl font-semibold text-black hover:bg-black hover:text-white"
                   />
                   <Toaster />
                 </div>
