@@ -40,6 +40,36 @@
           "li": ["Chức năng 1", "Chức năng 2", "Chức năng 3", "Chức năng 4"]
         }
       ]
+    },
+    {
+      "src": "/assets/images/project.jpg",
+      "project": [
+        {
+          "title": "Project",
+          "subTitle": "Mini project",
+          "titleLi": "Chức năng",
+          "li": ["Chức năng 1", "Chức năng 2", "Chức năng 3", "Chức năng 4"]
+        }
+      ]
+    },
+    {
+      "src": "/assets/images/project.jpg",
+      "project": [
+        {
+          "title": "Project",
+          "subTitle": "Mini project",
+          "titleLi": "Chức năng",
+          "li": ["Chức năng 1", "Chức năng 2", "Chức năng 3", "Chức năng 4"]
+        }
+      ]
     }
+  ],
+  "MiniProject": [
+    { "src": "/assets/images/css.svg", "text": "Demo" },
+    { "src": "/assets/images/css.svg", "text": "Demo" },
+    { "src": "/assets/images/css.svg", "text": "Demo" },
+    { "src": "/assets/images/css.svg", "text": "Demo" },
+    { "src": "/assets/images/css.svg", "text": "Demo" },
+    { "src": "/assets/images/css.svg", "text": "Demo" }
   ]
 }

@@ -1,8 +1,28 @@
 import FadeContent from "components/atoms/Animate/FadeContent";
 import Title from "components/atoms/Title";
 import Image from "next/image";
-
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 const HomeTemplate = ({ dataStatic }) => {
+  function sendEmail(e) {
+    e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
+
+    emailjs
+      .sendForm(
+        "service_eqys4qs",
+        "template_lplncgb",
+        e.target,
+        "SNXVEi0LoV5Ts_gWM"
+      )
+      .then(
+        (result) => {
+          window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
   return (
     <>
       {/* Banner */}
@@ -20,7 +40,6 @@ const HomeTemplate = ({ dataStatic }) => {
               </div>
             </div>
           </div>
-          <div class="absolute inset-x-0 bottom-0 h-[96px] bg-[url('/assets/images/wave.svg')]"></div>
         </div>
       </section>
       {/* Story */}
@@ -60,7 +79,7 @@ const HomeTemplate = ({ dataStatic }) => {
                   return (
                     <div
                       key={indexSkill}
-                      className="grid grid-cols-2 gap-4 lg:grid-cols-3"
+                      className="mb-6 grid grid-cols-2 gap-4  lg:mb-0 lg:grid-cols-3"
                     >
                       {itemSkill?.left?.map((itemLeft, indexLeft) => {
                         return (
@@ -122,65 +141,148 @@ const HomeTemplate = ({ dataStatic }) => {
       <section>
         <div className="container">
           <Title>Project</Title>
-          <div className="row mt-6">
-            <div className="col-12">
-              <div className="rounded-3xl border-2 bg-slate-400 p-8">
-                <div className="rounded-2xl border-4 border-white p-10">
-                  <div className="row">
-                    <div className="col-12 lg:col-6">
-                      {dataStatic?.Projects?.map((item, index) => {
-                        return (
-                          <div key={index}>
-                            {item?.project?.map((itemProject, indexProject) => {
-                              return (
-                                <div key={indexProject}>
-                                  <Title>{itemProject.title}</Title>
-                                  <div className="">{itemProject.subTitle}</div>
-                                  <ul>
-                                    <div className="">
-                                      {itemProject.titleLi}
-                                    </div>
-                                    {itemProject?.li?.map((itemLi, indexLi) => {
-                                      return (
-                                        <li
-                                          className="ml-6 list-disc"
-                                          key={indexLi}
-                                        >
-                                          {itemLi}
-                                        </li>
-                                      );
-                                    })}
-                                  </ul>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        );
-                      })}
+          <div className="mt-6">
+            {dataStatic?.Projects?.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="mb-5 rounded-2xl bg-slate-300 p-10 last:mb-0"
+                >
+                  <div className="border-2">
+                    <div className="row">
+                      <div className="col-12 p-10 lg:col-6">
+                        {item?.project?.map((itemLeft, indexLeft) => {
+                          return (
+                            <div key={indexLeft}>
+                              <Title>{itemLeft.title}</Title>
+                              <div className="ml-2">{itemLeft.subTitle}</div>
+                              <ul className="ml-5">
+                                <div>{itemLeft.titleLi}</div>
+                                {itemLeft?.li?.map((itemLi, indexLi) => {
+                                  return (
+                                    <li
+                                      key={indexLi}
+                                      className="list-inside list-disc"
+                                    >
+                                      {itemLi}
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div className="col-12 flex justify-center lg:col-6 ">
+                        <div
+                          style={{
+                            width: "230px",
+                            height: "270px",
+                            position: "relative",
+                            alignSelf: "center",
+                          }}
+                        >
+                          <Image
+                            src={item.src}
+                            alt="Logo skill"
+                            layout="fill"
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div className="col-12 flex justify-center lg:col-6">
-                      {dataStatic?.Projects?.map((item, index) => {
-                        return (
-                          <div
-                            style={{
-                              width: "220px",
-                              height: "250px",
-                              position: "relative",
-                              alignSelf: "center",
-                            }}
-                          >
-                            <Image
-                              src={item.src}
-                              alt="Logo skill"
-                              layout="fill"
-                            />
-                          </div>
-                        );
-                      })}
+                    <div className="row mt-5 px-6 text-center">
+                      <a
+                        href=""
+                        className="col-6 rounded-xl border-2 bg-white px-6 py-3 font-semibold text-black hover:bg-black hover:text-white lg:col-3"
+                      >
+                        Xem Demo
+                      </a>{" "}
+                      <a
+                        href=""
+                        className="col-6 rounded-xl border-2 bg-white px-6 py-3 font-semibold text-black hover:bg-black hover:text-white lg:col-3"
+                      >
+                        Xem Source Code
+                      </a>
                     </div>
                   </div>
                 </div>
-              </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      {/* Mini Project */}
+      <section>
+        <div className="container">
+          <Title>Mini Project</Title>
+          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {dataStatic?.MiniProject?.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  class="group flex items-center justify-center rounded-2xl border "
+                >
+                  <div class="relative aspect-video cursor-pointer ">
+                    <div class=" pt-30 absolute inset-0 z-50 flex cursor-pointer items-center justify-center rounded-2xl bg-slate-600  bg-opacity-50 to-transparent opacity-0 transition duration-300 group-hover:opacity-100">
+                      <div class="translate-y-4 space-y-3 rounded-2xl p-4 pb-10 text-xl transition duration-300  group-hover:translate-y-0">
+                        <a
+                          href=""
+                          className="rounded-xl bg-white px-6 py-3 font-semibold text-black hover:bg-black hover:text-white"
+                        >
+                          {item.text}
+                        </a>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        width: "355px",
+                        height: "200px",
+                        position: "relative",
+                        alignSelf: "center",
+                      }}
+                    >
+                      <Image src={item.src} alt="Logo skill" layout="fill" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      {/* Contact */}
+      <section>
+        <div className="container">
+          <Title>Contact</Title>
+          <div className="mt-6">
+            <div className="rounded-2xl border p-10">
+              <form className="contact-form" onSubmit={sendEmail}>
+                <div className="row mb-6">
+                  <div className="col-12 lg:col-6">
+                    <div className="mb-2 text-lg font-semibold">Name</div>
+                    <input type="text" name="user_name" className="w-full" />
+                  </div>
+                  <div className="col-12 lg:col-6">
+                    <div className="mb-2 text-lg font-semibold">Email</div>
+                    <input type="email" name="user_email" className="w-full" />
+                  </div>
+                </div>
+                <div className="mb-2 text-lg font-semibold">Subject</div>
+                <input
+                  type="text"
+                  name="user_subject"
+                  className="mb-6 w-full"
+                />
+                <div className="mb-2 text-lg font-semibold">Message</div>
+                <textarea name="message" className="w-full" />
+                <div className="mt-4 flex justify-center">
+                  <input
+                    type="submit"
+                    value="Send"
+                    className="rounded-2xl border px-10 py-3 text-black hover:bg-black hover:text-white"
+                  />
+                </div>
+              </form>
             </div>
           </div>
         </div>
