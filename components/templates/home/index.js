@@ -2,10 +2,12 @@ import FadeContent from "components/atoms/Animate/FadeContent";
 import Title from "components/atoms/Title";
 import Image from "next/image";
 import React, { useRef } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import emailjs from "emailjs-com";
 const HomeTemplate = ({ dataStatic }) => {
-  function sendEmail(e) {
-    e.preventDefault(); //This is important, i'm not sure why, but the email won't send without it
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
 
     emailjs
       .sendForm(
@@ -16,13 +18,15 @@ const HomeTemplate = ({ dataStatic }) => {
       )
       .then(
         (result) => {
-          window.location.reload(); //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior)
+          toast.success("Data has been submitted.");
+          window.location.reload();
         },
         (error) => {
+          toast.error("Error! An error occurred. Please try again later");
           console.log(error.text);
         }
       );
-  }
+  };
   return (
     <>
       {/* Banner */}
@@ -256,31 +260,47 @@ const HomeTemplate = ({ dataStatic }) => {
           <Title>Contact</Title>
           <div className="mt-6">
             <div className="rounded-2xl border p-10">
-              <form className="contact-form" onSubmit={sendEmail}>
+              <form className="contact-form" ref={form} onSubmit={sendEmail}>
                 <div className="row mb-6">
                   <div className="col-12 lg:col-6">
                     <div className="mb-2 text-lg font-semibold">Name</div>
-                    <input type="text" name="user_name" className="w-full" />
+                    <input
+                      type="text"
+                      name="user_name"
+                      className="w-full rounded-xl py-6 px-3"
+                      placeholder="Your name"
+                    />
                   </div>
                   <div className="col-12 lg:col-6">
                     <div className="mb-2 text-lg font-semibold">Email</div>
-                    <input type="email" name="user_email" className="w-full" />
+                    <input
+                      type="email"
+                      name="user_email"
+                      className="w-full rounded-xl py-6 px-3"
+                      placeholder="Your email"
+                    />
                   </div>
                 </div>
                 <div className="mb-2 text-lg font-semibold">Subject</div>
                 <input
                   type="text"
                   name="user_subject"
-                  className="mb-6 w-full"
+                  className="mb-6 w-full rounded-xl py-6 px-3"
+                  placeholder="Subject"
                 />
                 <div className="mb-2 text-lg font-semibold">Message</div>
-                <textarea name="message" className="w-full" />
+                <textarea
+                  name="message"
+                  className="w-full rounded-xl py-6 px-3 "
+                  placeholder="Message"
+                />
                 <div className="mt-4 flex justify-center">
                   <input
                     type="submit"
                     value="Send"
-                    className="rounded-2xl border px-10 py-3 text-black hover:bg-black hover:text-white"
+                    className="rounded-2xl border px-10 py-3 text-xl font-semibold text-black hover:bg-black hover:text-white "
                   />
+                  <Toaster />
                 </div>
               </form>
             </div>
