@@ -299,7 +299,6 @@ const HomeTemplate = ({ dataStatic }) => {
                   name="message"
                   className="w-full rounded-xl py-6 px-3 "
                   placeholder="Message"
-                  pattern="[A-Za-z]{1,32}"
                 />
                 <div className="mt-4 flex justify-center">
                   <input
