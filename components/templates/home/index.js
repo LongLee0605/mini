@@ -42,9 +42,7 @@ const HomeTemplate = ({ dataStatic }) => {
                 <b>Đây là test</b>
                 <p>Phần giới thiệu</p>
               </div>
-              <div className="col-12 bg-gray-400 lg:col-8">
-                <div className=""></div>
-              </div>
+              <div className="col-12 bg-gray-400 lg:col-8"></div>
             </div>
           </div>
         </div>
@@ -73,6 +71,33 @@ const HomeTemplate = ({ dataStatic }) => {
       <section>
         <div className="container">
           <Title>Interests</Title>
+          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {dataStatic?.Interests?.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="card relative h-60 w-full cursor-pointer overflow-hidden rounded-2xl text-white transition-all duration-700"
+                >
+                  <div className="absolute inset-0 z-20 flex h-full w-full flex-col items-center justify-center bg-gray-900 transition-all delay-200 duration-100 hover:opacity-0">
+                    <div
+                      style={{
+                        width: "84px",
+                        height: "84px",
+                        position: "relative",
+                        alignSelf: "center",
+                      }}
+                    >
+                      <Image src={item.src} alt="Logo skill" layout="fill" />
+                    </div>
+                    <div className="mt-4 text-white">{item.content}</div>
+                  </div>
+                  <div className="card-back absolute inset-0 z-10 flex h-full w-full items-center justify-center bg-black transition-all">
+                    {item.text}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
       {/* Skill */}

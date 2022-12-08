@@ -10,6 +10,38 @@
       "content": "Giới thiệu 3"
     }
   ],
+  "Interests": [
+    {
+      "src": "/assets/images/js.svg",
+      "content": "Javascript",
+      "text": "Đây là mặt sau của hover"
+    },
+    {
+      "src": "/assets/images/html.svg",
+      "content": "HTML",
+      "text": "Đây là mặt sau của hover"
+    },
+    {
+      "src": "/assets/images/css.svg",
+      "content": "CSS",
+      "text": "Đây là mặt sau của hover"
+    },
+    {
+      "src": "/assets/images/tailwindcss.svg",
+      "content": "Tailwind",
+      "text": "Đây là mặt sau của hover"
+    },
+    {
+      "src": "/assets/images/wp.png",
+      "content": "Wordpress",
+      "text": "Đây là mặt sau của hover"
+    },
+    {
+      "src": "/assets/images/vercel.svg",
+      "content": "Vercel",
+      "text": "Đây là mặt sau của hover"
+    }
+  ],
   "Skills": [
     {
       "left": [

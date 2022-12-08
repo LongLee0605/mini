@@ -33,3 +33,11 @@ p {
 section {
   @apply bg-[#F7FAFD] py-10 lg:py-20;
 }
+.card:hover {
+  transform: rotateX(180deg);
+  transform-style: preserve-3d;
+}
+
+.card-back {
+  transform: rotateX(180deg);
+}

@@ -17,6 +17,7 @@
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
     "file-loader": "^6.2.0",
+    "gsap": "^3.11.3",
     "html-react-parser": "^3.0.4",
     "lodash": "^4.17.21",
     "next": "13.0.5",
